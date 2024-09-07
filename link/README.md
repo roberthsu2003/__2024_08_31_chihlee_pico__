@@ -11,6 +11,6 @@ https://youtube.com/live/Xr1jz5rSk7M
 
 ---
 
-## 2024_09_0_上午
+## 2024_09_07_上午
 
 https://youtube.com/live/kFS8Hfsq5js
