@@ -1,4 +1,4 @@
-def input_data():
+def input_data()->tuple[int,int]:
     while True:
         try:    
             cm = int(input("請輸入身高(公分):"))
@@ -24,7 +24,21 @@ def input_data():
         except Exception as e:
             print(f'輸入錯誤{kg}')
             continue
-    return (cm,kg)
+    return cm,kg
+
+def get_status(bmi:float)->str:
+    if BMI >=35:
+        return "重度肥胖：BMI≧35"
+    elif BMI >=30:
+        return "中度肥胖：30≦BMI"
+    elif BMI >=27:
+        return "輕度肥胖：27≦BMI"
+    elif BMI >=24:
+        return "過重"
+    elif BMI >=18.5:
+        return "正常範圍"
+    else:
+        return "體重過輕"
 
 while True:
     kg=0  #清除變數
@@ -35,18 +49,7 @@ while True:
     cm=(cm/100)*(cm/100)
     BMI=kg/cm
     print(f'BMI={BMI}')
-    if BMI >=35:
-        print("重度肥胖：BMI≧35")
-    elif BMI >=30:
-        print("中度肥胖：30≦BMI")
-    elif BMI >=27:
-        print("輕度肥胖：27≦BMI")
-    elif BMI >=24:
-        print("過重")
-    elif BMI >=18.5:
-        print("正常範圍")
-    else:
-        print("體重過輕")
+    print(get_status(BMI))
     
     play_again = input("還要繼續嗎?(y,n)")
     if play_again == "n":
