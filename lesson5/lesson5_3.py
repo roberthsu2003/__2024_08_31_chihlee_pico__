@@ -40,14 +40,18 @@ def get_status(bmi:float)->str:
     else:
         return "體重過輕"
 
+def calculate_bmi(kg:int, cm:int) -> float:
+    cm=(cm/100)*(cm/100)
+    BMI=kg/cm
+    return BMI
+
 while True:
     kg=0  #清除變數
     cm=0  #清除變數
     cm,kg = input_data() #呼叫function
 
     print(f'身高={cm},體重={kg}')
-    cm=(cm/100)*(cm/100)
-    BMI=kg/cm
+    BMI = calculate_bmi(cm=cm,kg=kg) #引數名稱的呼叫,可以不依照順序
     print(f'BMI={BMI}')
     print(get_status(BMI))
     
