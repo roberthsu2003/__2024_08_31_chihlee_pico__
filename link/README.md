@@ -18,3 +18,12 @@ https://youtube.com/live/kFS8Hfsq5js
 ## 2024_09_07_下午
 
 https://youtube.com/live/veEM6Rtyla8
+
+## 2024_09_14_上午
+
+https://youtube.com/live/NjRrcno0hdA
+
+
+## 2024_09_14_下午
+
+https://youtube.com/live/yysw3ws9miw
