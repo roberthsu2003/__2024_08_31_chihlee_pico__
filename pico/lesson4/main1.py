@@ -4,7 +4,6 @@ import time
 led = Pin("LED", mode=Pin.OUT)
 status = False
 while True:
-    led.on()
     if status == False:
         led.on()
         status = True
