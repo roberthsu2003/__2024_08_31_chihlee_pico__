@@ -27,3 +27,9 @@ https://youtube.com/live/NjRrcno0hdA
 ## 2024_09_14_下午
 
 https://youtube.com/live/yysw3ws9miw
+
+## 2024_09_21_上午
+https://youtube.com/live/cPX5SAOXKpk
+
+## 2024_09_21_下午
+https://youtube.com/live/O9LxVyZwkO0
