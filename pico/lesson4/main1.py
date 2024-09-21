@@ -1,3 +1,3 @@
 from machine import Pin
-led = Pin("LED", Pin.OUT)
-led.value(0)
+led = Pin("LED", mode=Pin.OUT)
+led.on()
