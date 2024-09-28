@@ -33,3 +33,11 @@ https://youtube.com/live/cPX5SAOXKpk
 
 ## 2024_09_21_下午
 https://youtube.com/live/O9LxVyZwkO0
+
+## 2024_09_28_早上
+
+https://youtube.com/live/-78MchFwNro
+
+## 2024_09_28_下午
+
+https://youtube.com/live/-vPnCMW5rl4
