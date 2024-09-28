@@ -1,4 +1,4 @@
-from machine import Timer,ADC
+from machine import Timer,ADC,Pin
 
 
 
@@ -11,7 +11,10 @@ def do_thing(t):
     print(temperature)
     
 def do_thing1(t):
-    print("do_thing1")
+    adc1 = ADC(Pin(26))
+    duty = adc1.read_u16()
+    
+    print(f'可變電阻:{round(duty/65535*10)}')
 
 
 
