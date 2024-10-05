@@ -41,3 +41,14 @@ https://youtube.com/live/-78MchFwNro
 ## 2024_09_28_下午
 
 https://youtube.com/live/-vPnCMW5rl4
+
+---
+
+## 2024_10_5_早上
+
+https://youtube.com/live/SxWh_Aeg0xQ
+
+
+## 2024_10_05_下午
+
+https://youtube.com/live/TkEv9BU4mVo
