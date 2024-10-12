@@ -52,3 +52,11 @@ https://youtube.com/live/SxWh_Aeg0xQ
 ## 2024_10_05_下午
 
 https://youtube.com/live/TkEv9BU4mVo
+
+## 2024_10_12_早上
+
+https://youtube.com/live/8ZLWbNhBLDk
+
+## 2024_10_12_下午
+
+https://youtube.com/live/cHKXsX8paLg
