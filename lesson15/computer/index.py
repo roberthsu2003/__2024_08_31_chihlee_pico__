@@ -2,12 +2,11 @@ import paho.mqtt.client as mqtt
 from datetime import datetime
 import os,csv
 
-def record(date:str,topic:str,value:int):
+def record(topic:str,value:int | float):
     '''
     #檢查是否有data資料夾,沒有就建立data資料夾
     #取得今天日期,如果沒有今天日期.csv,就建立一個全新的今天日期.csv
     #將參數r的資料,儲存進入csv檔案內
-    #parameters date:str -> 這是日期
     #parameters topic:str -> 這是訂閱的topic
     #parameters value:int -> 這是訂閱的value
     '''
@@ -18,6 +17,7 @@ def record(date:str,topic:str,value:int):
     
     today = datetime.today()
     current_str = today.strftime("%Y-%m-%d %H:%M:%S")
+    date = today.strftime("%Y-%m-%d")
     filename = date + ".csv"
     #get_file_abspath
     full_path = os.path.join(data_dir,filename)
@@ -46,16 +46,13 @@ def on_message(client, userdata, msg):
         led_value = int(value)
         if led_value != led_origin_value:
             led_origin_value = led_value
-            print(f'led_value:{led_value}')
-            today = datetime.now()
-            now_str = today.strftime("%Y-%m-%d")
-            #save_data = [now_str,"SA-01/LED_LEVEL",led_value]
-            record(now_str,topic,led_value)
-    #print(f"Received message '{msg.payload.decode()}' on topic '{msg.topic}'")
+            record(topic,led_value)
+    
     if topic == 'SA-01/TEMPERATURE':
-        if temperature_origin_value != value:
-           temperature_origin_value = value
-           print(f'溫度:{value}')
+        temperature_value = float(value)
+        if temperature_origin_value != temperature_value:           
+           temperature_origin_value = temperature_value
+           record(topic,temperature_value)
         
 def main():
     client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION2)
