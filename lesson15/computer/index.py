@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 from datetime import datetime
 import os,csv
 
-def record(topic:str,value:int | float):
+def record(topic:str,value:int | float | str):
     '''
     #檢查是否有data資料夾,沒有就建立data資料夾
     #取得今天日期,如果沒有今天日期.csv,就建立一個全新的今天日期.csv
@@ -39,6 +39,7 @@ def on_connect(client, userdata, flags, reason_code, properties):
 def on_message(client, userdata, msg):
     global led_origin_value
     global temperature_origin_value
+    global line_origin_status
 
     topic = msg.topic
     value = msg.payload.decode()
@@ -53,6 +54,12 @@ def on_message(client, userdata, msg):
         if temperature_origin_value != temperature_value:           
            temperature_origin_value = temperature_value
            record(topic,temperature_value)
+    
+    if topic == 'SA-01/LINE_LEVEL':        
+        line_status = int(value)
+        if line_origin_status != line_status:           
+           line_origin_status = line_status
+           record(topic,line_status)
         
 def main():
     client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION2)
@@ -69,4 +76,5 @@ def main():
 if __name__ == "__main__":
     led_origin_value = 0
     temperature_origin_value = 0.0
+    line_origin_status = None 
     main()
