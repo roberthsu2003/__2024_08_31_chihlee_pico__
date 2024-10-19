@@ -31,9 +31,6 @@ def record(date:str,topic:str,value:int):
         writer = csv.writer(file)
         writer.writerow([current_str,topic,value])
 
-    
-
-
 
 def on_connect(client, userdata, flags, reason_code, properties):
     #連線bloker成功時,只會執行一次
@@ -41,6 +38,8 @@ def on_connect(client, userdata, flags, reason_code, properties):
 
 def on_message(client, userdata, msg):
     global led_origin_value
+    global temperature_origin_value
+
     topic = msg.topic
     value = msg.payload.decode()
     if topic == 'SA-01/LED_LEVEL':
@@ -53,7 +52,11 @@ def on_message(client, userdata, msg):
             #save_data = [now_str,"SA-01/LED_LEVEL",led_value]
             record(now_str,topic,led_value)
     #print(f"Received message '{msg.payload.decode()}' on topic '{msg.topic}'")
-
+    if topic == 'SA-01/TEMPERATURE':
+        if temperature_origin_value != value:
+           temperature_origin_value = value
+           print(f'溫度:{value}')
+        
 def main():
     client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION2)
     # 設定用戶名和密碼
@@ -67,5 +70,6 @@ def main():
 
 
 if __name__ == "__main__":
-    led_origin_value = 0 
+    led_origin_value = 0
+    temperature_origin_value = 0.0
     main()
